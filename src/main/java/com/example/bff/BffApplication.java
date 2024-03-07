@@ -2,12 +2,12 @@ package com.example.bff;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
+@Controller
 @RequestMapping
 public class BffApplication {
 
@@ -17,7 +17,7 @@ public class BffApplication {
 
 	@GetMapping
 	public String getHello() {
-		return "Hello World.";
+		return "Hello World!";
 	}
 
 }
