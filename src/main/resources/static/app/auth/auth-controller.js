@@ -17,7 +17,7 @@
 
         function register() {
             authFactory.register(ac.email, ac.password).then(function () {
-                $location.path('/quiz/gcp');
+                $location.path('/accounts');
             });
         }
     }

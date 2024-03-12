@@ -38,6 +38,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<google.languageapi.version>2.1.3</google.languageapi.version>
 	</properties>
     <dependencyManagement>
         <dependencies>
@@ -63,6 +64,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-language</artifactId>
+			<version>${google.languageapi.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

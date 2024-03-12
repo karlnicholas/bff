@@ -27,7 +27,7 @@
             authFactory.login(lc.email, lc.password)
                 .then(function () {
                     lc.errorMessage = '';
-                    $location.path('/quiz/gcp');
+                    $location.path('/accounts');
                 }).catch(function (err) {
                     lc.errorMessage = 'Login failed';
                 });
