@@ -15,8 +15,8 @@
         init();
 
         function init() {
-            accountsFactory.getAccounts().then(function (data) {
-                qc.accounts = data;
+            accountsFactory.getAccounts().then(function (accounts) {
+                qc.accounts = accounts;
             });
         }
 

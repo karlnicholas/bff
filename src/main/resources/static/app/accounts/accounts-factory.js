@@ -14,11 +14,12 @@
         };
 
         function getAccounts() {
-            return $http.get('/language').then(function (response) {
+            return $http.get('/accounts').then(function (response) {
                 console.log(response.data);
+                return response.data.accounts;
             });
 
-            return "{'accounts': ['checking', 'saving']}";
+            // return "{'accounts': ['checking', 'saving']}";
         }
     }
 
