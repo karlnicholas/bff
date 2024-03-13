@@ -14,7 +14,7 @@
         init();
 
         function init() {
-            accountsFactory.getAccounts(ac.user).then(function (accounts) {
+            accountsFactory.getAccounts(qc.user).then(function (accounts) {
                 qc.accounts = accounts;
             });
         }
