@@ -13,8 +13,8 @@
             getAccounts: getAccounts
         };
 
-        function getAccounts() {
-            return $http.get('/accounts').then(function (response) {
+        function getAccounts(user) {
+            return $http.get('/accounts?user='+user.uid).then(function (response) {
                 console.log(response.data);
                 return response.data.accounts;
             });

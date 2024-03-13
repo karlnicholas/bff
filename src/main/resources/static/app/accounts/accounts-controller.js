@@ -7,16 +7,15 @@
     AccountsController.$inject = ['$routeParams', 'accountsFactory', 'authFactory'];
 
     function AccountsController($routeParams, accountsFactory, authFactory) {
-        var qc = this;
+        var ac = this;
 
-        qc.accountsName = $routeParams.name || 'accounts';
-        // qc.user = authFactory.user;
+        ac.user = authFactory.user;
 
         init();
 
         function init() {
-            accountsFactory.getAccounts().then(function (accounts) {
-                qc.accounts = accounts;
+            accountsFactory.getAccounts(ac.user).then(function (accounts) {
+                ac.accounts = accounts;
             });
         }
 
