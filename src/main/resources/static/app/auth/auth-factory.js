@@ -40,7 +40,7 @@
 
         function login(email, password) {
             return auth.$signInWithEmailAndPassword(email, password).then(function (firebaseUser) {
-                user.uid = firebaseUser.uid;
+                user.uid = firebaseUser.user.uid;
                 user.email = email;
                 user.isLoggedIn = true;
             });
