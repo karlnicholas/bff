@@ -25,12 +25,8 @@
                     return response.data;
                 });
             } else {
-                return '';
+                return Promise.reject();
             }
-
-            // return "{'answer': ['checking', 'saving']}";
         }
     }
-
-
 })();

@@ -14,10 +14,11 @@
         init();
 
         function init() {
-            answerFactory.getAnswer(qc.user).then(function (answer) {
+            answerFactory.getAnswer(qc.user).then( function (answer) {
                 qc.answer = answer;
+            }).catch(function () {
+                qc.answer = null;
             });
         }
-
     }
 })();
