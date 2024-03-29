@@ -1,19 +1,19 @@
 (function () {
 
-    var module = angular.module('qiqAccounts');
+    var module = angular.module('qiqAnswer');
 
-    module.factory('accountsFactory', accountsFactory);
+    module.factory('answerFactory', answerFactory);
 
-    accountsFactory.$inject = ['$http']
+    answerFactory.$inject = ['$http']
 
 
-    function accountsFactory($http) {
+    function answerFactory($http) {
 
         return {
-            getAccounts: getAccounts
+            getAnswer: getAnswer
         };
 
-        function getAccounts(user) {
+        function getAnswer(user) {
             const options = {
                 headers: {
                     'Authorization': 'Bearer ' + user.ya
@@ -24,7 +24,7 @@
                 return response.data;
             });
 
-            // return "{'accounts': ['checking', 'saving']}";
+            // return "{'answer': ['checking', 'saving']}";
         }
     }
 

@@ -1,6 +1,6 @@
 (function () {
 
-    var app = angular.module('qiqApp', ['ui.bootstrap', 'qiqAuth', 'qiqAccounts']);
+    var app = angular.module('qiqApp', ['ui.bootstrap', 'qiqAuth', 'qiqAnswer']);
 
     app.run(['$rootScope', '$location', function ($rootScope, $location) {
 

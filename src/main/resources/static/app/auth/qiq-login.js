@@ -27,7 +27,7 @@
             authFactory.login(lc.email, lc.password)
                 .then(function () {
                     lc.errorMessage = '';
-                    $location.path('/accounts');
+                    $location.path('/answer');
                 }).catch(function (err) {
                     lc.errorMessage = 'Login failed';
                 });

@@ -1,15 +1,15 @@
 (function () {
 
-    var module = angular.module('qiqAccounts', ['ngRoute']);
+    var module = angular.module('qiqAnswer', ['ngRoute']);
 
     module.config(['$routeProvider', config]);
 
 
     function config($routeProvider) {
-        $routeProvider.when('/accounts', {
-            controller: 'AccountsController',
+        $routeProvider.when('/answer', {
+            controller: 'AnswerController',
             controllerAs: 'qc',
-            templateUrl: 'app/accounts/accounts-template.html',
+            templateUrl: 'app/answer/answer-template.html',
             // resolve: {
             //     "currentAuth": ["authFactory", function (authFactory) {
             //         return authFactory.auth.$requireSignIn();
