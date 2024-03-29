@@ -13,7 +13,8 @@
         var user = {
             isLoggedIn: false,
             email: '',
-            uid: -1
+            uid: -1,
+            ya: ''
         };
 
 
@@ -31,6 +32,7 @@
                 user.uid = firebaseUser.uid;
                 user.email = email;
                 user.isLoggedIn = true;
+                user.ya = '';
             });
         }
 
@@ -43,6 +45,7 @@
                 user.uid = firebaseUser.user.uid;
                 user.email = email;
                 user.isLoggedIn = true;
+                user.ya = firebaseUser.user.ya;
             });
         }
 

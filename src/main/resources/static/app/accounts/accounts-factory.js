@@ -14,7 +14,12 @@
         };
 
         function getAccounts(user) {
-            return $http.get('/accounts?user='+user.uid).then(function (response) {
+            const options = {
+                headers: {
+                    'Authorization': 'Bearer ' + user.ya
+                }
+            }
+            return $http.get('/accounts?user='+user.uid, options).then(function (response) {
                 console.log(response.data);
                 return response.data.accounts;
             });
