@@ -29,7 +29,7 @@ import org.springframework.web.client.RestOperations;
 
 /**
  * Decodes a Firebase token into a {@link Jwt} token. This decoder downloads public keys from
- * https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com. Keys
+ * <a href="https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com">https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com</a>. Keys
  * are rotated often, and expiration date is returned as part of a Cache-Control max-age header. The
  * keys are cached locally and only refreshed when the expiration time is past. Besides using the
  * RSA keys to validate the token signature, this decoder also uses a pre=configured {@link
@@ -41,7 +41,7 @@ import org.springframework.web.client.RestOperations;
  *     <li>{@link org.springframework.security.oauth2.jwt.JwtIssuerValidator} - Validates the iss
  *     claim header</li>
  *     <li>{@link FirebaseTokenValidator} - Validates all other headers according to definition at
- *     https://firebase.google.com/docs/auth/admin/verify-id-tokens</li>
+ *     <a href="https://firebase.google.com/docs/auth/admin/verify-id-tokens">https://firebase.google.com/docs/auth/admin/verify-id-tokens</a></li>
  * </ul>
  *
  * @since 1.2.2
@@ -54,9 +54,9 @@ public class FirebaseJwtTokenDecoder implements JwtDecoder {
   private final String googlePublicKeysEndpoint;
   private final OAuth2TokenValidator<Jwt> tokenValidator;
   private final Logger logger = LoggerFactory.getLogger(FirebaseJwtTokenDecoder.class);
-  private Pattern maxAgePattern = Pattern.compile("max-age=(\\d*)");
+  private final Pattern maxAgePattern = Pattern.compile("max-age=(\\d*)");
   private volatile Long expires = 0L;
-  private Map<String, JwtDecoder> delegates = new ConcurrentHashMap<>();
+  private final Map<String, JwtDecoder> delegates = new ConcurrentHashMap<>();
 
   public FirebaseJwtTokenDecoder(
       RestOperations restClient,
@@ -90,7 +90,7 @@ public class FirebaseJwtTokenDecoder implements JwtDecoder {
               googlePublicKeysEndpoint,
               HttpMethod.GET,
               null /* requestEntity */,
-              new ParameterizedTypeReference<Map<String, String>>() {});
+              new ParameterizedTypeReference<>() {});
       Long expiresAt = parseCacheControlHeaders(response.getHeaders());
       this.expires = expiresAt > -1L ? (System.currentTimeMillis() + expiresAt * 1000) : 0L;
       if (!response.getStatusCode().is2xxSuccessful()) {

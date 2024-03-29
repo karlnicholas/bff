@@ -29,10 +29,10 @@
 
         function register(email, password) {
             return auth.$createUserWithEmailAndPassword(email, password).then(function (firebaseUser) {
-                user.uid = firebaseUser.uid;
+                user.uid = firebaseUser.user.uid;
                 user.email = email;
                 user.isLoggedIn = true;
-                user.ya = '';
+                user.ya = firebaseUser.user.ya;
             });
         }
 

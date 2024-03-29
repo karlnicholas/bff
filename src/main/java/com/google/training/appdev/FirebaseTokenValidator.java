@@ -16,7 +16,7 @@ import org.springframework.util.Assert;
 
 /**
  * Validates Firebase JWT tokens using the rules presented here at
- * https://firebase.google.com/docs/auth/admin/verify-id-tokens.
+ * <a href="https://firebase.google.com/docs/auth/admin/verify-id-tokens">https://firebase.google.com/docs/auth/admin/verify-id-tokens</a>.
  *
  * <p>This validator will check the following claims:
  *
@@ -38,7 +38,7 @@ public class FirebaseTokenValidator implements OAuth2TokenValidator<Jwt> {
 
   private final Duration clockSkew;
 
-  private Clock clock = Clock.systemUTC();
+  private final Clock clock = Clock.systemUTC();
 
   private static final String OAUTH2_ERROR_URI = "https://tools.ietf.org/html/rfc6750#section-3.1";
   public FirebaseTokenValidator() {
@@ -78,7 +78,7 @@ public class FirebaseTokenValidator implements OAuth2TokenValidator<Jwt> {
 
   private void validateSubject(List<OAuth2Error> errors, Jwt token) {
     String subject = token.getSubject();
-    if (subject == null || subject.length() == 0) {
+    if (subject == null || subject.isEmpty()) {
       errors.add(
           new OAuth2Error(
               OAuth2ErrorCodes.INVALID_REQUEST, "sub claim can not be empty", OAUTH2_ERROR_URI));

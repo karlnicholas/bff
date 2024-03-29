@@ -36,6 +36,10 @@
 
         function logout() {
             authFactory.logout(lc.email, lc.password).then(function () {
+                authFactory.user.isLoggedIn = false;
+                authFactory.user.email = '';
+                authFactory.user.uid = -1;
+                authFactory.user.ya = '';
                 $location.path('/');
             });
         }
