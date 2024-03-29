@@ -19,9 +19,9 @@
                     'Authorization': 'Bearer ' + user.ya
                 }
             }
-            return $http.get('/accounts?user='+user.uid, options).then(function (response) {
-                console.log(response.data);
-                return response.data.accounts;
+            return $http.get('/answer?user='+user.uid, options).then(function (response) {
+                // console.log(response.data);
+                return response.data;
             });
 
             // return "{'accounts': ['checking', 'saving']}";
