@@ -19,7 +19,7 @@
                     'Authorization': 'Bearer ' + user.ya
                 }
             }
-            return $http.get('/answer?user='+user.uid, options).then(function (response) {
+            return $http.get('/answer?uid='+user.uid, options).then(function (response) {
                 // console.log(response.data);
                 return response.data;
             });
