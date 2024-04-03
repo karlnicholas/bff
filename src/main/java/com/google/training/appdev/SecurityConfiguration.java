@@ -14,27 +14,44 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.authorizeHttpRequests(authorize->{
               authorize
-                      .requestMatchers("/",  "/index.html", "/favicon.ico")
+                      .requestMatchers("/**")
                       .permitAll()
-                      .requestMatchers("/css/**")
-                      .permitAll()
-                      .requestMatchers("/templates/**")
-                      .permitAll()
-                      .requestMatchers("/app/**")
-                      .permitAll()
-                      .requestMatchers("/answer")
+                      .requestMatchers("/api/**")
                       .authenticated();
 
             })
-        .oauth2ResourceServer(configurer -> configurer.jwt(Customizer.withDefaults()));
+            .oauth2ResourceServer(configurer -> configurer.jwt(Customizer.withDefaults()));
 
     return http.build();
   }
+
+
+//  @Bean
+//  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//    http.authorizeHttpRequests(authorize->{
+//              authorize
+//                      .requestMatchers("/",  "/index.html", "/index","/favicon.ico")
+//                      .permitAll()
+//                      .requestMatchers("/login/**")
+//                      .permitAll()
+//                      .requestMatchers("/css/**")
+//                      .permitAll()
+//                      .requestMatchers("/templates/**")
+//                      .permitAll()
+//                      .requestMatchers("/app/**")
+//                      .permitAll()
+//                      .requestMatchers("/answer")
+//                      .authenticated();
+//
+//            })
+//        .oauth2ResourceServer(configurer -> configurer.jwt(Customizer.withDefaults()));
+//
+//    return http.build();
+//  }
 
   @Bean
     public RestTemplate getRestTemplate() {

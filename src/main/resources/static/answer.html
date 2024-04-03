@@ -5,13 +5,15 @@
     <meta name="viewport" , content="width=device-width, initial-scale=1"/>
     <title>Anwer App</title>
     <link rel="stylesheet" , href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="module" src="firebaseAuth.js"></script>
+    <script type="module" src="firebaseAnswer.js"></script>
 </head>
 <body>
     <div class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <div class="navbar-brand">
-                    <a href="/">Answer App</a>
+                    <a href="/">Anwer App</a>
                 </div>
             </div>
             <ul class="nav navbar-nav">
@@ -28,7 +30,8 @@
     </div>
     <div class='container'>
         <h1>Quicky Bank</h1>
+        <h4><span id="uid"></span></h4>
+        <h4><span id="principal"></span></h4>
     </div>
-    <script type="module" src="firebaseAuth.js"></script>
     </body>
 </html>
