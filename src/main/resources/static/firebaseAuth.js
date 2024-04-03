@@ -43,6 +43,7 @@ const signin = (event) => {
 const signout = (event) => {
     event.preventDefault(); // Prevent default action of form
     // serviceRequest() // Perform Logic
+    document.getElementById("login-form").style.display="none";
     signOut(auth);
 };
 
