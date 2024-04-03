@@ -12,8 +12,7 @@ initializeApp(firebaseConfig);
 const auth = getAuth();
 
 auth.onAuthStateChanged(function(user) {
-    document.querySelector("#user_email").textContent = '';
-    document.querySelector("#user_password").textContent = '';
+    document.getElementById("login-form").reset();
     document.getElementById("login-form").style.display="none";
     if (user) {
         callAPI(user)
