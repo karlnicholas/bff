@@ -1,5 +1,5 @@
-import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js'
-import { getAuth, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js'
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"
+import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -14,6 +14,7 @@ const auth = getAuth();
 auth.onAuthStateChanged(function(user) {
     document.getElementById("login-form").reset();
     document.getElementById("login-form").style.display="none";
+    document.getElementById("login-error").textContent = '';
     if (user) {
         callAPI(user)
     } else {
@@ -35,9 +36,12 @@ async function callAPI(user) {
 const signin = (event) => {
     event.preventDefault(); // Prevent default action of form
     // serviceRequest() // Perform Logic
-    let email = document.querySelector("#user_email").value;
-    let password = document.querySelector("#user_password").value;
-    signInWithEmailAndPassword(auth, email, password);
+    let email = document.getElementById("user_email").value;
+    let password = document.getElementById("user_password").value;
+    signInWithEmailAndPassword(auth, email, password)
+        .catch((error) => {
+            document.getElementById("login-error").textContent = error.message;
+        });
 };
 
 const signout = (event) => {
