@@ -18,8 +18,8 @@ auth.onAuthStateChanged(function(user) {
     if (user) {
         callAPI(user)
     } else {
-        document.querySelector("#uid").textContent = "";
-        document.querySelector("#principal").textContent = "";
+        document.getElementById("uid").textContent = "";
+        document.getElementById("principal").textContent = "";
     }
 });
 
@@ -29,8 +29,8 @@ async function callAPI(user) {
         headers: {authorization: `Bearer ${token}`}
     })
     const answer = await res.json();
-    document.querySelector("#uid").textContent = "Uid = " +answer.uid;
-    document.querySelector("#principal").textContent = "Principal = " +answer.principal;
+    document.getElementById("uid").textContent = "Uid = " +answer.uid;
+    document.getElementById("principal").textContent = "Principal = " +answer.principal;
 }
 
 const signin = (event) => {
@@ -56,6 +56,6 @@ const showform = (event) => {
     document.getElementById("login-form").style.display="block";
 };
 
-document.querySelector('#login-form').addEventListener("submit", signin);
-document.querySelector('#login-link').addEventListener("click", showform);
-document.querySelector('#logout-link').addEventListener("click", signout);
+document.getElementById('login-form').addEventListener("submit", signin);
+document.getElementById('login-link').addEventListener("click", showform);
+document.getElementById('logout-link').addEventListener("click", signout);
